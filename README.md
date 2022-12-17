@@ -6,6 +6,7 @@
 3. 设置API的url地址 `sdk.url = 'http://127.0.0.1:5700'`
 4. 开始使用
 5. 例子：
+````
 import go_cqhttpsdk as sdk
 sdk = sdk.sdk()
 sdk.url = "http://127.0.0.1:5700"
@@ -16,4 +17,5 @@ sdk.send_private_msg(3192145045,'','hello shizhi')
  GET: http://127.0.0.1:5700/send_private_msg
  GET: http://127.0.0.1:5700/send_private_msg
 '''
+````
 感谢：requests，go-cqhttp，tencent
