@@ -1,5 +1,4 @@
 import json
-cq = '[CQ:at,qq=123,name=不在群的QQ]' #示例信息
 class cqc:
     def CqToJson(self,cq):  #解析CQ码
         '''函数文档
@@ -792,5 +791,3 @@ multiMsgFlag="0" ><item layout="2"><audio cover="http://imgcache.qq.com/music/ph
 
         print(json.dumps(dic))
         return self.JsonToCq(json.dumps(dic))
-cqs = cqc()
-print(cqs.图片('aa.jpg',0,0,'http://aaa.aa'))
