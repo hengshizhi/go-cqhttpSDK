@@ -8,10 +8,13 @@
 5. 例子：
 ````
 import go_cqhttpsdk as sdk
+improt cq as cq
 sdk = sdk.sdk()
 sdk.url = "http://127.0.0.1:5700"
 sdk.发送私聊消息(3192145045,'','你好')
 sdk.send_private_msg(3192145045,'','hello shizhi')
+cqs = cqc()
+print(cqs.图片('aa.jpg',0,0,'http://aaa.aa'))  #生成CQ码
 '''
  PS D:\Downloads\人类智慧> & C:/Users/Administrator/AppData/Local/Programs/Python/Python310/python.exe d:/Downloads/人类智慧/QQjiqir/示例.py
  GET: http://127.0.0.1:5700/send_private_msg
