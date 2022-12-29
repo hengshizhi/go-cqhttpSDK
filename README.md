@@ -13,6 +13,12 @@ sdk.url = "http://127.0.0.1:5700"
 sdk.发送私聊消息(3192145045,'','你好')
 sdk.send_private_msg(3192145045,'','hello shizhi')
 ````
+CQ码生成例子:
+````
+import cq as cq
+cqs = cq.cqc()
+print(cqs.图片('aa.jpg',0,0,'http://aaa.aa'))
+````
 感谢：requests，go-cqhttp，tencent
 
 小提示:配置文件config.yml内容
