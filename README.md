@@ -19,6 +19,42 @@ import cq as cq
 cqs = cq.cqc()
 print(cqs.图片('aa.jpg',0,0,'http://aaa.aa'))
 ````
+###HTTP接收信息的例子:
+````
+import go_cqhttpserver as server
+
+a = server.apiserver()
+a.main_f = 'a.main()'  #设置每次服务器被访问时运行的函数
+a.communication_f = 'a.communication()'  #设置通讯用函数，用来把收到的信息发出去
+a.c_port = 8980  #端口
+a.c_listen = 100  #最大连接数
+a.go()  #启动服务器
+#a.data是实时获取到的消息
+>>>
+````
+运行后启动示例的客户端，配置参考底部
+````
+import socket
+# 创建客户端套接字
+sk = socket.socket()           
+# 尝试连接服务器
+sk.connect(('127.0.0.1',8980))
+while True:
+    # 信息发送
+    # 信息接收
+    ret = sk.recv(1024)
+    # 结束会话
+    if ret == b'bye':
+        sk.send(b'bye')
+        break
+    # 信息打印
+    print(ret.decode('utf-8'))
+# 关闭客户端套接字
+sk.close()   
+
+>>>
+返回json数据
+````
 感谢：requests，go-cqhttp，tencent
 
 小提示:配置文件config.yml内容
