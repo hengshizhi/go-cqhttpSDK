@@ -20,7 +20,7 @@ class apiserver:
     main_f = 'a.main()'
     communication_f = 'a.communication()'
     c_port = 8980  #端口
-    c_listen = 100  #最大连接数
+    c_listen = False  #最大连接数
     data = '' #收到的消息
     c_state = 0  #socket开启状态
     def __init__(self):
@@ -30,11 +30,12 @@ class apiserver:
         pass
     def communication(self):
         if (self.c_state == 0):
+            print('http服务器启动')
             self.c_state += 1
             import socket
             self.sk = socket.socket()
             self.sk.bind(('127.0.0.1', 8980))
-            self.sk.listen(self.c_listen)
+            self.sk.listen()
             self.conn, self.addr = self.sk.accept()
             # try:
             self.conn.send(str(self.data).encode("utf-8"))
@@ -59,5 +60,3 @@ class apiserver:
         exec(self.communication_f)
         exec(self.main_f)
         return 'OK'
-a = apiserver()
-a.go()
