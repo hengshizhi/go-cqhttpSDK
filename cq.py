@@ -1,4 +1,5 @@
 import json
+cq = '[CQ:at,qq=123,name=不在群的QQ]' #示例信息
 class cqc:
     def CqToJson(self,cq):  #解析CQ码
         '''函数文档
