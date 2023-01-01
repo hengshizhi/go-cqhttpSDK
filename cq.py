@@ -1,5 +1,14 @@
 import json
-cq = '[CQ:at,qq=123,name=不在群的QQ]' #示例信息
+
+def 挑出CQ码(消息:str,CQ码类型:str):
+    消息 = 消息.split('[')
+    cqdata = ''
+    for i in 消息:
+        if(CQ码类型 in i):
+            cqdata = i
+            break
+    cqdata = '['+cqdata.split(']')[0]+']'
+    return cqdata
 class cqc:
     def CqToJson(self,cq):  #解析CQ码
         '''函数文档
