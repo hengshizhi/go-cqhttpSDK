@@ -511,15 +511,17 @@ class sdk:
     
     ## 上传群文件
     def upload_group_file(self,group_id=True,file=True,name=True,folder=True):
+        url = self.url+'/upload_group_file'  #拼接终结点
+        print('GET:',url)
         myParams = {}
         myParams['group_id'] = group_id
         myParams['file'] = file
         myParams['name'] = name
-        myParams['folder'] = folder
-        ret = self.get('/upload_group_file',myParams)
-        return ret
+        #myParams['folder'] = folder
+        res = requests.get(url=url, params=myParams)  #发送给API请求
+        return res.text
     
-    def 上传群文件(self,group_id="群号",file="本地文件路径",name="储存名称",folder="父目录ID"):
+    def 上传群文件(self,group_id="群号",file="本地文件路径(字符串需要加r)",name="储存名称",folder="父目录ID"):
         self.upload_group_file(group_id,file,name,folder)
     
     ## 获取群文件系统信息
@@ -774,3 +776,14 @@ class sdk:
     
     def 发送合并转发好友(self,user_id="好友QQ号",messages="自定义转发消息, 具体看 CQcodeopen in new window"):
         self.send_private_forward_msg(user_id,messages)
+#sdk = sdk()
+# url = sdk.url+'/upload_group_file'  #拼接终结点
+# print('GET:',url)
+# myParams = {}
+# myParams['group_id'] = 870133394
+# myParams['file'] = r'D:\xampp\htdocs\img\c.biancheng.net.webp'
+# myParams['name'] = 'biancheng.webp'
+# myParams['folder'] = ''
+# res = requests.get(url=url, params=myParams)  #发送给API请求
+# print(res.text)
+#print(sdk.upload_group_file(870133394,r'D:\xampp\htdocs\img\c.biancheng.net.webp','c.net.webp'))
